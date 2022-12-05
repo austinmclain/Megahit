@@ -8,7 +8,7 @@ USE megahit;
 -- Create user
 DROP USER IF EXISTS 'megahit_user'@'localhost';
 CREATE USER 'megahit_user'@'localhost' IDENTIFIED BY '1234';
-GRANT ALL PRIVILEGES ON megahit.* TO 'megahit_user'@'localhost';
+GRANT SELECT, INSERT, DELETE, UPDATE ON megahit.* TO 'megahit_user'@'localhost';
 FLUSH PRIVILEGES;
 
 -- Create tables
@@ -111,8 +111,8 @@ INSERT INTO billing_info VALUES
     (1234567891234568, "John", "Smith", 20101, "1011 Random Street", "Random", "Kansas");
     
 INSERT INTO user_account VALUES
-	("austin@email.com", 12345, 1234567891234567),
-    ("john@email.com", 2048, 1234567891234568);
+	("austin@email.com", "a12345M", 1234567891234567),
+    ("john@email.com", "2048W", 1234567891234568);
     
 -- Information from IMDb
 INSERT INTO movie (movie_title, movie_year, movie_runtime, pg_rating) VALUES
