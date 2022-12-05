@@ -1,17 +1,20 @@
 package com.megahit.backend.Account;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+
 import java.math.*;
 
 @Entity
+@Data
 @Table(name = "user_account")
 public class Account {
     @Id
-    @Getter @Setter private String email_address;
-    @Getter @Setter private String account_password;
-    @Getter @Setter private BigInteger card_number;
+    @Column(name = "email_address")
+    private String email;
+    private String account_password;
+    private BigInteger card_number;
 }
