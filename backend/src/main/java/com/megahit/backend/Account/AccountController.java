@@ -22,7 +22,7 @@ public class AccountController {
     }
 
     @GetMapping(path="")
-    public @ResponseBody Account getAccountByEmail(@RequestParam String email) {
-        return accountRepository.findByEmail(email);
+    public @ResponseBody Account getAccountByEmailAddress(@RequestParam String emailAddress) {
+        return accountRepository.findByEmailAddress(emailAddress);
     }
 }

@@ -14,7 +14,7 @@ import java.math.*;
 public class Account {
     @Id
     @Column(name = "email_address")
-    private String email;
+    private String emailAddress;
     private String account_password;
     private BigInteger card_number;
 }

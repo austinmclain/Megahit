@@ -8,5 +8,5 @@ import com.megahit.backend.Account.Account;
 // CRUD refers Create, Read, Update, Delete
 
 public interface AccountRepository extends CrudRepository<Account, Integer> {
-    Account findByEmail(String email);
+    Account findByEmailAddress(String emailAddress);
 }
