@@ -2,8 +2,12 @@ import './App.css';
 import Login from './components/Login/Login';
 import { useState } from 'react'
 import ProfileSelection from './components/ProfileSelection/ProfileSelection';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navigation from './components/Navigation/Navigation';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 function App() {
+  document.title = "Megahit";
   const [currentAccount, setCurrentAccount] = useState('')
   const [currentProfile, setCurrentProfile] = useState('');
 
@@ -21,9 +25,14 @@ function App() {
     )
   } else {
     return (
-      <div className="App">
-        <h1>Welcome!</h1>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<Navigation currentAccount={currentAccount} currentProfile={currentProfile} />}>
+            <Route exact path="/movies" element={<p>Loading...</p>} />
+            <Route exact path="/favorites" element={<p>Loading...</p>} />
+          </Route>
+        </Routes>
+      </BrowserRouter >
     );
   }
 }
