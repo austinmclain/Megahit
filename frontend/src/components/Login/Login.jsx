@@ -1,7 +1,7 @@
 import isCorrectLoginInfo from "../../api/Account/isCorrectLoginInfo";
 
 export default function Login(props) {
-    const { setLoginStatus } = props;
+    const { setCurrentAccount } = props;
 
     async function attemptLogin(event) {
         event.preventDefault();
@@ -11,7 +11,7 @@ export default function Login(props) {
 
         try {
             const loginAttempt = await isCorrectLoginInfo(emailAddress, password);
-            if (loginAttempt) { setLoginStatus(true); }
+            if (loginAttempt) { setCurrentAccount(emailAddress); }
             return;
         } catch (err) {
             console.log(err);
@@ -22,9 +22,9 @@ export default function Login(props) {
         <div>
             <h1>Login</h1>
             <form onSubmit={(event) => attemptLogin(event)}>
-                <input placeholder="Email Address"></input>
+                <input type="email" placeholder="Email Address"></input>
                 <br></br>
-                <input placeholder="Password"></input>
+                <input type="password" placeholder="Password"></input>
                 <br></br>
                 <button>Submit</button>
             </form>
