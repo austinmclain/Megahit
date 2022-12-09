@@ -15,13 +15,15 @@ public class ProfileController {
 
     private ProfileService profileService;
 
+    public ProfileController(ProfileService profileService) {this.profileService = profileService;}
+
     @GetMapping(path="")
     public @ResponseBody Iterable<Profile> getAccountProfiles(@RequestParam String emailAddress) {
         return profileRepository.findAllByEmailAddress(emailAddress);
     }
 
     @PostMapping(path="/new")
-    public void createProfile(@RequestParam Profile profile) {
+    public void createProfile(@RequestBody Profile profile) {
         profileService.addNewProfile(profile);
     }
 }

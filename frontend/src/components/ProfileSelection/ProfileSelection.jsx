@@ -1,4 +1,5 @@
 import fetchProfiles from '../../api/Profile/fetchProfiles';
+import addProfile from '../../api/Profile/addProfile';
 import Profile from './Profile'
 import { useState, useEffect } from 'react';
 
@@ -17,6 +18,19 @@ export default function ProfileSelection(props) {
         getProfiles();
     });
 
+    async function createProfile(event) {
+        event.preventDefault();
+
+        const email = currentAccount;
+        const name = event.target[0].value;
+
+        try {
+            addProfile(email, name);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
         <div>
             {profiles.map((profile) => {
@@ -27,6 +41,11 @@ export default function ProfileSelection(props) {
                 )
             })
             }
-        </div>
+            <br></br>
+            <form onSubmit={(event) => createProfile(event)}>
+                <input type="text" placeholder="Name"></input>
+                <button>Create New Profile</button>
+            </form>
+        </div >
     )
 }
