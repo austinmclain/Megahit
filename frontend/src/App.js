@@ -11,6 +11,11 @@ function App() {
   const [currentAccount, setCurrentAccount] = useState('')
   const [currentProfile, setCurrentProfile] = useState('');
 
+  function logout() {
+    setCurrentAccount('');
+    setCurrentProfile('');
+  }
+
   if (currentAccount === '') {
     return (
       <div className="App">
@@ -27,7 +32,7 @@ function App() {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="" element={<Navigation currentAccount={currentAccount} currentProfile={currentProfile} />}>
+          <Route path="" element={<Navigation currentAccount={currentAccount} currentProfile={currentProfile} logout={logout} />}>
             <Route exact path="/movies" element={<p>Loading...</p>} />
             <Route exact path="/favorites" element={<p>Loading...</p>} />
           </Route>
