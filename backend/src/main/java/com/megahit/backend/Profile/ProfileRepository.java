@@ -8,4 +8,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface ProfileRepository extends CrudRepository<Profile, Integer> {
     @Query(value = "SELECT p FROM Profile p WHERE p.emailAddress = ?1")
     Iterable<Profile> findAllByEmailAddress(String emailAddress);
+    Profile findByProfile_name(String name);
 }
