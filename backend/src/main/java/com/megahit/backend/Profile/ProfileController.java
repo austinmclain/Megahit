@@ -3,6 +3,7 @@ package com.megahit.backend.Profile;
 import com.megahit.backend.Profile.Profile;
 import com.megahit.backend.Profile.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,7 @@ public class ProfileController {
     }
 
     @PostMapping(path="/new")
+    @ResponseStatus(HttpStatus.CREATED)
     public void createProfile(@RequestBody Profile profile) {
         profileService.addNewProfile(profile);
     }
