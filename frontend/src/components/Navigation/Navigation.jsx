@@ -15,7 +15,7 @@ export default function Navigation(props) {
                 <Container>
                     <Navbar.Brand>Megahit</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Link className="nav-link" to="/movies">Movies</Link>
+                        <Link className="nav-link" to="">Movies</Link>
                         <Link className="nav-link" to="/favorites">Favorites</Link>
                     </Nav>
                     <Navbar.Collapse className="justify-content-end">

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping(path="/movie")
 @CrossOrigin(origins = "http://localhost:3000")
@@ -16,5 +18,10 @@ public class MovieController {
     @GetMapping(path="/all")
     public @ResponseBody Iterable<Movie> getAllMovies() {
         return movieRepository.findAll();
+    }
+
+    @GetMapping(path="")
+    public @ResponseBody Optional<Movie> getMovie(int id) {
+        return movieRepository.findById(id);
     }
 }
