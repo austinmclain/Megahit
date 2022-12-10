@@ -1,6 +1,7 @@
 package com.megahit.backend.Profile;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
@@ -13,5 +14,5 @@ public class Profile {
     private String emailAddress;
     @Id
     private String profile_name;
-    private Integer profile_picture;
+    private Integer profile_picture = 1;
 }

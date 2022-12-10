@@ -10,7 +10,6 @@ export default async function addProfile(email, name) {
     const data = {
         "emailAddress": email,
         "profile_name": name,
-        "profile_picture": 1
     }
 
     try {
