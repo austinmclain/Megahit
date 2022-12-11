@@ -28,9 +28,9 @@ public class FavoriteController {
         favoriteRepository.save(favorite);
     }
 
-//    @DeleteMapping
-//    @ResponseStatus(HttpStatus.ACCEPTED)
-//    public void unfavorite(@RequestBody Favorite favorite) {
-//        favoriteRepository.delete(favorite);
-//    }
+    @PostMapping(path = "/delete")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void unfavorite(@RequestBody Favorite favorite) {
+        favoriteRepository.delete(favorite);
+    }
 }

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Movie from "./Movie";
 
 export default function MovieList(props) {
-    const { currentAccount, currentProfile } = props;
+    const { currentAccount, currentProfile, filter } = props;
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export default function MovieList(props) {
             {movies.map((movie) => {
                 return (
                     <div key={movie.movie_id}>
-                        <Movie movie={movie} currentAccount={currentAccount} currentProfile={currentProfile} />
+                        <Movie movie={movie} currentAccount={currentAccount} currentProfile={currentProfile} filter={filter} />
                     </div>
                 )
             })}
