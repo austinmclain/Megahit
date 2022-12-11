@@ -35,8 +35,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="" element={<Navigation currentAccount={currentAccount} currentProfile={currentProfile} logout={logout} />}>
-            <Route exact path="" element={<MovieList currentAccount={currentAccount} />} />
-            <Route exact path="/favorites" element={<p>Loading...</p>} />
+            <Route exact path="" element={<MovieList currentAccount={currentAccount} currentProfile={currentProfile} />} />
+            <Route exact path="/favorites" element={<MovieList currentAccount={currentAccount} currentProfile={currentProfile} />} />
             <Route exact path="/movie/:id" element={<MovieInfo />} />
           </Route>
         </Routes>
@@ -44,5 +44,7 @@ function App() {
     );
   }
 }
+
+// TODO: Add some sort of filter to /favorites MovieList so that only favorited movies appear.
 
 export default App;

@@ -37,7 +37,7 @@ export default function MovieInfo() {
         <div className='movie'>
             <h1>{title}</h1>
             <hr></hr>
-            <h3>Genres:
+            <h3>Genre:
                 {genres.map((genre) => {
                     return (
                         <span> {genre}</span>
