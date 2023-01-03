@@ -15,8 +15,7 @@ services:
       - data-volume:/var/lib/mysql
 networks:
   default:
-    name: megahit
-    external: true
+    name: megahit_backend
 volumes:
   data-volume:
 
