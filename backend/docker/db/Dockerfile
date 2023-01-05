@@ -1,6 +1,6 @@
-FROM mysql
+FROM mysql:latest
 
-COPY ./InitMegahit.sql /tmp
+COPY docker/db/InitMegahit.sql /tmp
 
 CMD [ "mysqld", "--init-file=/tmp/InitMegahit.sql" ]
 

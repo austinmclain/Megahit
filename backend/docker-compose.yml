@@ -1,18 +1,22 @@
 version: '3.3'
 services:
-  mysql:
-    container_name: megahit_mysql
-    image: megahitdb
+
+  db:
+    container_name: megahit_db
     restart: always
+    build:
+      context: .
+      dockerfile: ./docker/db/Dockerfile
     environment:
       MYSQL_DATABASE: 'megahitdb'
       MYSQL_ROOT_PASSWORD: 'password'
     ports:
-      - '3306:3306' # Container port 3306 assigned to host port 3306
+      - '3306:3306' # Host port 3306 assigned to container port 3306
     expose:
-      - '3306' # Question: Why is 3306 the only port that works with MySQL?
+      - '3306' # Note: 3306 is the default port for MySQL
     volumes:
       - data-volume:/var/lib/mysql
+
 networks:
   default:
     name: megahit_backend
@@ -20,9 +24,9 @@ volumes:
   data-volume:
 
 # Useful commands:
-# docker-compose up
-# docker-compose down
+# docker-compose __ (up, down, start, stop, pause, unpause)
 
 # For a fresh start:
 # docker system prune -a
 # docker volume prune
+# docker network prune

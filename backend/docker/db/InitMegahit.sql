@@ -1,7 +1,7 @@
 -- Using MySQL:
 
 -- Create schema
-DROP DATABASE IF EXISTS megahitdb;
+-- DROP DATABASE IF EXISTS megahitdb; -- Comment this line out if using Docker to prevent script from running more than once
 CREATE SCHEMA megahitdb;
 USE megahitdb;
 
