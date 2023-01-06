@@ -4,12 +4,13 @@ services:
   db:
     container_name: megahit_db
     restart: always
+    env_file: ./.env
     build:
       context: .
       dockerfile: ./docker/db/Dockerfile
     environment:
-      MYSQL_DATABASE: 'megahitdb'
-      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: $MYSQLDB_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQLDB_DATABASE
     ports:
       - '3306:3306' # Host port 3306 assigned to container port 3306
     expose:
