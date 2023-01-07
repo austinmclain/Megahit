@@ -33,9 +33,9 @@ services:
       - '8080'
     environment:
       - spring.jpa.hibernate.ddl-auto=none
-      - spring.datasource.url=jdbc:mysql://megahit_db:3306/megahitdb
-      - spring.datasource.username=megahit_user
-      - spring.datasource.password=1234
+      - spring.datasource.url=jdbc:mysql://megahit_db:3306/$MYSQLDB_DATABASE
+      - spring.datasource.username=$MYSQLDB_USER
+      - spring.datasource.password=$MYSQLDB_USER_PASSWORD
       - spring.jpa.show-sql=true
       - server.servlet.context-path=/api/v1
     stdin_open: true
