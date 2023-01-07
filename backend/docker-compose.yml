@@ -18,6 +18,29 @@ services:
     volumes:
       - data-volume:/var/lib/mysql
 
+  app:
+    container_name: megahit_app
+    restart: always # TODO: Change restart policy
+    env_file: ./.env
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    ports:
+      - '8080:8080'
+    expose:
+      - '8080'
+    environment:
+      - spring.jpa.hibernate.ddl-auto=none
+      - spring.datasource.url=jdbc:mysql://megahit_db:3306/megahitdb
+      - spring.datasource.username=megahit_user
+      - spring.datasource.password=1234
+      - spring.jpa.show-sql=true
+      - server.servlet.context-path=/api/v1
+    stdin_open: true
+    tty: true
+
 networks:
   default:
     name: megahit_backend
