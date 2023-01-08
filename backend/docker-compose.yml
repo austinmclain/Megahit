@@ -20,7 +20,7 @@ services:
 
   app:
     container_name: megahit_app
-    restart: always # TODO: Change restart policy
+    restart: on-failure:2 # Maximum retries
     env_file: ./.env
     depends_on:
       - db
