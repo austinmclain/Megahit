@@ -1,14 +1,14 @@
 -- Using MySQL:
 
 -- Create schema
-DROP DATABASE IF EXISTS megahit;
-CREATE SCHEMA megahit;
-USE megahit;
+-- DROP DATABASE IF EXISTS megahitdb; -- Comment this line out if using Docker to prevent script from running more than once
+CREATE SCHEMA megahitdb;
+USE megahitdb;
 
 -- Create user
-DROP USER IF EXISTS 'megahit_user'@'localhost';
-CREATE USER 'megahit_user'@'localhost' IDENTIFIED BY '1234';
-GRANT SELECT, INSERT, DELETE, UPDATE ON megahit.* TO 'megahit_user'@'localhost';
+DROP USER IF EXISTS 'megahit_user'@'%';
+CREATE USER 'megahit_user'@'%' IDENTIFIED BY '1234';
+GRANT SELECT, INSERT, DELETE, UPDATE ON megahitdb.* TO 'megahit_user'@'%';
 FLUSH PRIVILEGES;
 
 -- Create tables
