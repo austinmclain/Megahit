@@ -12,9 +12,5 @@ export default async function addProfile(email, name) {
         "profile_name": name,
     }
 
-    try {
-        await axios.post(`${url}/profile/new`, data, config);
-    } catch (err) {
-        console.log(err);
-    }
+    return axios.post(`${url}/profile/new`, data, config);
 }
