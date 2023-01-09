@@ -15,7 +15,7 @@ export default function MovieList(props) {
                 .catch(error => console.error(`Error: ${error}`));
         }
         getMovies();
-    });
+    }, []);
 
     return (
         <div>

@@ -16,7 +16,7 @@ export default function ProfileSelection(props) {
                 .catch(error => console.error(`Error: ${error}`));
         }
         getProfiles();
-    });
+    }, [currentAccount]);
 
     async function createProfile(event) {
         event.preventDefault();
@@ -25,7 +25,8 @@ export default function ProfileSelection(props) {
         const name = event.target[0].value;
 
         try {
-            addProfile(email, name);
+            await addProfile(email, name);
+            setProfiles([...profiles, { email_address: email, profile_name: name, profile_picture: 1 }]);
         } catch (err) {
             console.log(err);
         }

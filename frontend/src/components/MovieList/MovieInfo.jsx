@@ -26,7 +26,7 @@ export default function MovieInfo() {
         }
         loadMovieInfo();
         loadGenres();
-    });
+    }, [id]);
 
     const title = movie.movie_title;
     const year = movie.movie_year;
